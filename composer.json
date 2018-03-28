@@ -1,0 +1,14 @@
+{
+    "name": "jojotique/form-bootstrap",
+    "description": "Création de formulaires avec prise en charge de Bootstrap",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Giildo",
+            "email": "giildo.jm@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
