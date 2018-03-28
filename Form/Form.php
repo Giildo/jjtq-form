@@ -192,7 +192,7 @@ class Form implements FormInterface
             if ($bootstrap) {
                 $this->form .= "<div class='form-check'>";
             }
-            $this->form .= "<input type='checkbox' value='{$value}' id='{$value}' {$selected} class='{$classInput}' />";
+            $this->form .= "<input type='checkbox' name='{$value}' id='{$value}' class='{$classInput}' {$selected} />";
             $this->form .= "<label for='{$value}' class='{$classLabel}'>{$labelValidate}</label>";
             if ($bootstrap) {
                 $this->form .= "</div>";
