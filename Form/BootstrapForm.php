@@ -86,6 +86,22 @@ class BootstrapForm extends Form implements FormInterface
         $this->form .= "</div>";
     }
 
+    public function checkbox(
+        array $valuesCheckbox,
+        ?array $labelsCheckbox = [],
+        ?array $valuesChecked = [],
+        ?string $classLabel = '',
+        ?string $classInput = ''
+    ): void
+    {
+        $classLabel .= ' form-check-label';
+        $classInput .= ' form-check-input';
+
+        $this->form .= "<div class='form-check'>";
+        parent::checkbox($valuesCheckbox, $labelsCheckbox, $valuesChecked, $classLabel, $classInput);
+        $this->form .= "</div>";
+    }
+
     /**
      * @param null|string $text
      * @param null|string $type

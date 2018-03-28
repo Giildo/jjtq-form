@@ -146,6 +146,58 @@ class Form implements FormInterface
     }
 
     /**
+     * Crée un élément de type select
+     *
+     * @param array $valuesCheckbox
+     * @param array $labelsCheckbox
+     * @param array|null $valuesChecked
+     * @param null|string $classLabel
+     * @param null|string $classInput
+     * @return void
+     */
+    public function checkbox(
+        array $valuesCheckbox,
+        ?array $labelsCheckbox = [],
+        ?array $valuesChecked = [],
+        ?string $classLabel = '',
+        ?string $classInput = ''
+    ): void {
+        $selected = '';
+        $labelValidate = '';
+
+        foreach ($valuesCheckbox as $value) {
+            if (!empty($labelsCheckbox)) {
+                foreach ($labelsCheckbox as $valueLabel => $label) {
+                    if ($valueLabel === $value) {
+                        $labelValidate = $label;
+                        break;
+                    }
+                }
+            }
+
+            if (empty($labelValidate)) {
+                $labelValidate = ucfirst($value);
+            }
+
+            if (!empty($valuesChecked)) {
+                foreach ($valuesChecked as $valueChecked) {
+                    if ($valueChecked === $value) {
+                        $selected = 'checked';
+                    }
+                }
+            }
+
+            $this->form .= "<label for='{$value}' class='{$classLabel}'>{$labelValidate}</label>";
+            $this->form .= "<input type='checkbox' value='{$value}' id='{$value}' {$selected} class='{$classInput}' />";
+
+            $selected = '';
+            $labelValidate = '';
+        }
+
+        $this->form .= '</select>';
+    }
+
+    /**
      * Retourne un bouton de validation
      *
      * @param string $text
