@@ -9,6 +9,11 @@
             "email": "giildo.jm@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Jojotique\\Form\\": "/"
+        }
+    },
     "minimum-stability": "dev",
     "require": {}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jojotique\Framework\Form;
+namespace Jojotique\Form\Form;
 
 /**
  * Classe qui permet de créer un formulaire avec des "class" Bootstrap
