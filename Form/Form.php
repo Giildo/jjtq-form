@@ -153,6 +153,7 @@ class Form implements FormInterface
      * @param array|null $valuesChecked
      * @param null|string $classLabel
      * @param null|string $classInput
+     * @param bool|null $bootstrap
      * @return void
      */
     public function checkbox(
@@ -160,7 +161,8 @@ class Form implements FormInterface
         ?array $labelsCheckbox = [],
         ?array $valuesChecked = [],
         ?string $classLabel = '',
-        ?string $classInput = ''
+        ?string $classInput = '',
+        ?bool $bootstrap = false
     ): void {
         $selected = '';
         $labelValidate = '';
@@ -187,8 +189,14 @@ class Form implements FormInterface
                 }
             }
 
-            $this->form .= "<label for='{$value}' class='{$classLabel}'>{$labelValidate}</label>";
+            if ($bootstrap) {
+                $this->form .= "<div class='form-check'>";
+            }
             $this->form .= "<input type='checkbox' value='{$value}' id='{$value}' {$selected} class='{$classInput}' />";
+            $this->form .= "<label for='{$value}' class='{$classLabel}'>{$labelValidate}</label>";
+            if ($bootstrap) {
+                $this->form .= "</div>";
+            }
 
             $selected = '';
             $labelValidate = '';
